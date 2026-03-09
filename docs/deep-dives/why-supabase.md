@@ -1,28 +1,24 @@
 # Why Supabase?
 
-You need a database to store the knowledge graph. The two options: managed Postgres or self-hosted.
+Knowledge graph storage requires either managed or self-hosted Postgres.
 
 ## Managed (Supabase)
 
-- Free tier handles personal use easily.
-- Built-in connection pooling, backups, and observability.
-- `pgvector` extension available out of the box.
-- Dashboard for manual queries and debugging.
+- **Free Tier:** Sufficient for personal use. Storage usage after 3mos is <2% of the current 8GB limit.
+- **Features:** Built-in connection pooling, backups, and observability.
+- **Extensions:** `pgvector` available by default.
+- **Operations:** Minimal maintenance.
 
 ## Self-hosted
 
-- Full control over hardware and region.
-- No dependency on a third-party provider.
-- You handle backups, upgrades, and connection pooling.
+- **Control:** Full authority over hardware and region.
+- **Independence:** No third-party dependencies.
+- **Responsibility:** User manages backups, upgrades, and pooling.
 
-## Why I chose Supabase
+## The Choice
 
-For a personal tool, the free tier removes all operational burden. I have not hit the limits. If I did, I could migrate the data to a self-hosted Postgres instance in an afternoon -- the schema is portable.
+Supabase eliminates the operational burden of a personal knowledge graph. If usage exceeds free tier limits, the portable schema allows for migration to self-hosted Postgres.
 
-## On the Service Role Key
+## The Service Role Key
 
-This architecture uses the Supabase Service Role key, which bypasses Row Level Security (RLS). This is deliberate.
-
-RLS exists to enforce per-user access policies in multi-tenant applications. Here, there is one user: you. The MCP server runs on your infrastructure and talks directly to the database. Enforcing RLS would add overhead with no security benefit.
-
-If you expose the database to other clients or users, you should implement RLS policies. For the single-tenant case, the Service Role key is the correct choice.
+The architecture uses the Supabase Service Role key to bypass Row Level Security (RLS). In single-tenant applications, RLS adds unnecessary overhead. The MCP server runs on private infrastructure and requires no per-user access policies. Use the Service Role key for single-tenant environments.

@@ -76,9 +76,17 @@ This repository walks through the full architecture, start to finish. The guides
 
 ### Deep Dives
 - [The Economics](docs/deep-dives/economics.md) -- Full cost breakdown vs. SaaS subscriptions.
+- [Advanced System Prompt](docs/deep-dives/advanced-system-prompt.md) -- Orchestrating tools and memory with radical candor.
 - [Security Model](docs/deep-dives/security-model.md) -- Exposing an MCP server safely.
 - [Why TypingMind?](docs/deep-dives/why-typingmind.md) -- Client requirements for this architecture.
 - [Why Supabase?](docs/deep-dives/why-supabase.md) -- Managed Postgres and the RLS debate.
+- [Autonomous Delegation](docs/deep-dives/autonomous-delegation.md) -- The theoretical vision for 24/7 engineering.
 
 ### Open Source Primitives
 - [`mcp-memory-supabase`](https://github.com/kaspnilsson/mcp-memory-supabase) -- The knowledge graph MCP server. MIT licensed.
+
+## The Vision: Autonomous Delegation
+
+This playbook currently focuses on the **Memory + Search** wedge—the persistent brain. But the architecture is designed for autonomous work. 
+
+By adding an orchestration layer (like [OpenClaw](https://openclaw.ai/)) and a GitHub-based state machine, you can delegate entire engineering tasks to your twin via GitHub labels (`scoped`, `in_progress`, `completed`). While autonomous bots are sidelined in this initial guide for stability, the infrastructure you are building today can be the foundation for a 24/7 autonomous workforce.
