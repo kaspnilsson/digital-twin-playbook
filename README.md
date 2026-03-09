@@ -1,6 +1,6 @@
 # Stop Letting AI Companies Monetize Your Memories
 
-OpenAI is exploring ads in ChatGPT. Anthropic signed contracts with the Department of Defense. Google trains on everything you feed Gemini. Nobody knows exactly what these companies will do with the thousands of conversations you have poured into their products -- your debugging sessions, your medical questions, your relationship problems, your business plans -- but the incentives are not subtle. They want you dependent on their product, and your conversation history is the lever.
+[OpenAI is exploring ads in ChatGPT](https://www.adweek.com/media/openai-chatgpt-ads-job-listing-marketing-platform/). [Anthropic signed contracts with the Department of Defense](https://investors.palantir.com/news-details/2024/Anthropic-and-Palantir-Partner-to-Bring-Claude-AI-Models-to-AWS-for-U.S.-Government-Intelligence-and-Defense-Operations/). [Google trains on everything you feed Gemini](https://www.tomsguide.com/ai/google-gemini/how-to-stop-gemini-from-training-on-your-data). Nobody knows exactly what these companies will do with the thousands of conversations you have poured into their products -- your debugging sessions, your medical questions, your relationship problems, your business plans -- but the incentives are not subtle. They want you dependent on their product, and your conversation history is the lever.
 
 Each of them remembers what you tell their models, and each of them locks that history inside their own app. Switch from Claude to ChatGPT and you start over. Switch to Gemini and you start over again. The profile they have built of how you think, how you write, and what you work on belongs to them, not to you. It does not follow you out the door.
 
@@ -30,7 +30,7 @@ AI subscriptions are priced at $20/month to make the lock-in feel cheap.
 | Supabase | $0 (free tier) |
 | TypingMind | ~$3 amortized (one-time ~$40 license) |
 | Brave Search API | $0 (free tier) |
-| API compute via OpenRouter | ~$36 for 50M tokens |
+| API compute via [OpenRouter](https://openrouter.ai/) | ~$36 for 50M tokens |
 | **Total** | **~$45** |
 
 Metered compute costs more than a flat subscription. But the $20 price is a customer-acquisition subsidy. These companies are burning cash to build a user base before they figure out how to extract value from the conversation data they are accumulating. I pay the actual cost of the compute and keep the data under my own lock and key.
