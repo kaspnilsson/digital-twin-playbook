@@ -80,6 +80,6 @@ When a query implies choosing between options, use this framework:
 </anti_patterns>
 ```
 
-## 4. Why This Works
+## 4. Structural Separation
 
-By separating the **Memory Protocol** from the **Decision Framework** and the **Persona**, you create a model that can handle complex technical work while maintaining a consistent "voice." The model becomes a partner that remembers context, searches for truth, and thinks before it speaks.
+The XML tags are not cosmetic. Separating **Memory Protocol**, **Decision Framework**, and **Persona** into discrete blocks lets you modify one concern without destabilizing the others. You can swap the decision framework for a different methodology, tighten the memory protocol, or soften the persona -- each independently. The prompt is a config file, not a monolith.

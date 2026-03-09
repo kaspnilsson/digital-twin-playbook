@@ -9,7 +9,7 @@ Semantic search requires a Postgres database with the `pgvector` extension. This
 
 ## 1. Create the Project
 
-1. Create a new project on [Supabase](https://supabase.com/). The free tier provides sufficient resources for personal use.
+1. Create a new project on [Supabase](https://supabase.com/). The free tier is sufficient for personal use.
 2. Save your database password securely for future access.
 
 ## 2. Execute the Schema

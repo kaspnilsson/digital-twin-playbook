@@ -1,6 +1,6 @@
 # Security Model
 
-Expose MCP servers only over secure channels. The server executes commands from your AI client against your database.
+Expose MCP servers only over secure channels. The server executes AI client commands against your database.
 
 ## Threat Model
 
@@ -12,7 +12,7 @@ Expose MCP servers only over secure channels. The server executes commands from 
 
 ### HTTPS
 
-Serve the MCP server via HTTPS using a reverse proxy (e.g., Caddy) and Let's Encrypt. Do not use plain HTTP.
+Serve the MCP server via HTTPS using a reverse proxy (e.g., Caddy) with Let's Encrypt certificates.
 
 ### Authentication
 
@@ -20,7 +20,7 @@ Require a strong bearer token (`openssl rand -hex 32`) for every request. Add th
 
 ### Network Filtering
 
-Restrict server access to specific IP addresses via security groups or firewalls (UFW).
+Restrict server access to known IP addresses via security groups or firewalls (UFW). This is practical only if your IPs are static; mobile users on dynamic IPs may need to skip this layer.
 
 ### Secrets Management
 

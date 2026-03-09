@@ -4,7 +4,7 @@ Knowledge graph storage requires either managed or self-hosted Postgres.
 
 ## Managed (Supabase)
 
-- **Free Tier:** Sufficient for personal use. Storage usage after 3mos is <2% of the current 8GB limit.
+- **Free Tier:** Sufficient for personal use. After three months of daily use, my storage sits below 2% of the 8GB free tier limit.
 - **Features:** Built-in connection pooling, backups, and observability.
 - **Extensions:** `pgvector` available by default.
 - **Operations:** Minimal maintenance.
@@ -17,7 +17,7 @@ Knowledge graph storage requires either managed or self-hosted Postgres.
 
 ## The Choice
 
-Supabase eliminates the operational burden of a personal knowledge graph. If usage exceeds free tier limits, the portable schema allows for migration to self-hosted Postgres.
+Supabase reduces the operational burden of a personal knowledge graph. If usage exceeds free tier limits, the portable schema allows migration to self-hosted Postgres.
 
 ## The Service Role Key
 

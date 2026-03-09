@@ -65,7 +65,7 @@ mkdir -p ~/.config/mcp
 nano ~/.config/mcp/mcp-servers.json
 ```
 
-Paste the configuration below. Replace `<placeholders>` with your keys. 
+Paste the configuration below. Replace `<placeholders>` with your keys. The Memory server uses OpenRouter for embeddings (`text-embedding-3-small`), but a standard OpenAI key also works. The Sequential Thinking server forces the model to plan complex operations before acting.
 
 ```json
 {
@@ -115,7 +115,9 @@ Create a systemd service to manage the Gateway process:
 sudo nano /etc/systemd/system/mcp-connector.service
 ```
 
-Paste the following, replacing `username` and `<your-token>`:
+Paste the following, replacing `username` and `<your-token>`.
+
+**Note:** The paths below assume Node `v22.14.0`. Run `node --version` to check your actual version and replace `v22.14.0` if it differs.
 
 ```ini
 [Unit]
@@ -125,6 +127,7 @@ After=network.target
 [Service]
 Type=simple
 User=username
+# Replace v22.14.0 with your actual Node version (run: node --version)
 Environment=PATH=/home/username/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 Environment=MCP_AUTH_TOKEN=<your-token>
 ExecStart=/home/username/.nvm/versions/node/v22.14.0/bin/mcp-server --config /home/username/.config/mcp/mcp-servers.json --port 50880

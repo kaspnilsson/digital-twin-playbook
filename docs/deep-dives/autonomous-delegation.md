@@ -4,7 +4,7 @@ The "Memory + Search" stack is a wedge. The ultimate goal of the Digital Twin is
 
 ## 1. The Theory: GitHub as a State Machine
 
-Open an issue (by using our Typingmind tools) rather than chatting. The agent polls the repository, identifies tasks, and moves them through a state machine via GitHub labels.
+Open an issue via the GitHub MCP tool (or directly on github.com) rather than chatting. The agent polls the repository, identifies tasks, and moves them through a state machine via GitHub labels.
 
 - **`new`**: A fresh request. The agent triages it.
 - **`needs_scoping`**: The agent requires a design decision. It comments and waits.
@@ -32,6 +32,6 @@ Safe code execution requires isolated Docker containers. This adds devops comple
 ### Maturity
 Orchestration layers are evolving. This architecture remains a **blueprint for early adopters**.
 
-## 4. Why It Matters
+## 4. The Payoff
 
-Autonomous delegation is the logical conclusion of AI sovereignty. By owning the memory, gateway, and state machine, you build a private, 24/7 engineering department. Your twin understands your preferences and accumulates context with every task.
+If you own the memory, the gateway, and the state machine, you can run engineering tasks around the clock without leaking context to a third party. Every completed task feeds observations back into the knowledge graph, so the next task starts with more context than the last.

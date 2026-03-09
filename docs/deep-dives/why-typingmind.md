@@ -18,7 +18,7 @@ TypingMind fulfills these requirements. Few alternatives currently support arbit
 ## Alternatives
 
 - **Claude Desktop:** Supports local MCP but lacks remote HTTP support. Also, model lock-in.
-- **Cursor:** Focuses on code completion rather than general chat.
+- **Cursor:** Focuses on code completion, not general chat.
 - **Open WebUI:** Open source, but MCP support remains early.
 
 If another client develops these four features, you can replace TypingMind without altering the architecture.

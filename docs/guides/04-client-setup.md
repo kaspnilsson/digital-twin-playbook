@@ -24,7 +24,7 @@ TypingMind syncs chat history and models but does not sync remote MCP configurat
 
 AI models require a "System Prompt" to determine when and how to use memory tools. Create a new default persona in **Characters / System Prompts**.
 
-Use this template as a baseline:
+Use this template as a baseline. For the full prompt with a decision framework and sequential thinking instructions, see the [Advanced System Prompt](../deep-dives/advanced-system-prompt.md) deep dive.
 
 ```xml
 You are a Staff Engineer and my primary thought partner. You are a peer-reviewer first, a collaborator second, and a tool third.
@@ -73,9 +73,9 @@ You have access to Memory MCP, GitHub MCP, and Brave Search.
 </making_responses>
 
 <anti_patterns>
-- Do not repeat questions back to me.
-- Avoid filler phrases ("Great question!").
-- Do not provide wishy-washy non-answers.
+- Skip the preamble -- answer directly.
+- Cut filler phrases ("Great question!").
+- Commit to a position instead of hedging.
 </anti_patterns>
 ```
 
