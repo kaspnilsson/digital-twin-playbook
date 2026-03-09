@@ -72,13 +72,21 @@ This repository walks through the full architecture, start to finish. The guides
 1. [Architecture Overview](docs/guides/01-architecture.md) -- How the pieces fit together.
 2. [Database Provisioning](docs/guides/02-database.md) -- Setting up Supabase and `pgvector`.
 3. [VPS & Gateway Setup](docs/guides/03-vps-and-gateway.md) -- The server, Caddy, systemd, and the MCP multiplexer.
-4. [The Client & System Prompt](docs/guides/04-client-setup.md) -- Connecting TypingMind and teaching the AI to use its tools.
+4. [Client & System Prompt](docs/guides/04-client-setup.md) -- Connecting TypingMind and teaching the AI to use its tools.
 
 ### Deep Dives
 - [The Economics](docs/deep-dives/economics.md) -- Full cost breakdown vs. SaaS subscriptions.
+- [Advanced System Prompt](docs/deep-dives/advanced-system-prompt.md) -- Orchestrating tools and memory with radical candor.
 - [Security Model](docs/deep-dives/security-model.md) -- Exposing an MCP server safely.
 - [Why TypingMind?](docs/deep-dives/why-typingmind.md) -- Client requirements for this architecture.
 - [Why Supabase?](docs/deep-dives/why-supabase.md) -- Managed Postgres and the RLS debate.
+- [Autonomous Delegation](docs/deep-dives/autonomous-delegation.md) -- The theoretical vision for 24/7 engineering.
 
 ### Open Source Primitives
 - [`mcp-memory-supabase`](https://github.com/kaspnilsson/mcp-memory-supabase) -- The knowledge graph MCP server. MIT licensed.
+
+## The Vision: Autonomous Delegation
+
+This playbook focuses on the **Memory + Search** wedge -- the persistent brain. The architecture is designed for autonomous work.
+
+By adding an orchestration layer (like [OpenClaw](https://openclaw.ai/)) and a GitHub-based state machine, you can delegate engineering tasks to your twin via GitHub labels (`scoped`, `in_progress`, `completed`). Autonomous bots are out of scope for this initial guide, but the infrastructure you build here supports them. See the [Autonomous Delegation](docs/deep-dives/autonomous-delegation.md) deep dive for details.
