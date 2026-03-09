@@ -14,11 +14,17 @@ I run a knowledge graph in a Postgres database on my own server. Claude, GPT-5, 
 
 The architecture has three layers:
 
-**The brain.** I wrote an open-source MCP server called [`mcp-memory-supabase`](https://github.com/kaspnilsson/mcp-memory-supabase) that stores a knowledge graph -- entities, observations, relations -- in [Supabase](https://supabase.com/) (managed Postgres) with `pgvector` for semantic search. The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that lets AI clients call external tools. This server is one of several tools I run.
+### The Brain
 
-**The gateway.** A small cloud VPS (virtual private server) hosts an MCP Gateway -- a Node.js daemon that multiplexes several MCP tools behind a single HTTPS endpoint. I run three: the memory server, [Brave Search](https://brave.com/search/api/) for grounding in live data, and a GitHub server for reading and writing code. The gateway authenticates requests with a bearer token and spawns each tool as a child process. Adding a new tool means adding four lines to a JSON config file.
+I wrote an open-source MCP server called [`mcp-memory-supabase`](https://github.com/kaspnilsson/mcp-memory-supabase) that stores a knowledge graph -- entities, observations, relations -- in [Supabase](https://supabase.com/) (managed Postgres) with `pgvector` for semantic search. The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that lets AI clients call external tools. This server is one of several tools I run.
 
-**The client.** [TypingMind](https://www.typingmind.com/) connects to the gateway. It is a bring-your-own-key AI chat app that runs as a PWA on every device I own -- phone, work laptop, home desktop. Same interface, same tools, any model. I pick the model from a dropdown. A new release from Anthropic or OpenAI inherits my full history the moment I select it.
+### The Gateway
+
+A small cloud VPS (virtual private server) hosts an MCP Gateway -- a Node.js daemon that multiplexes several MCP tools behind a single HTTPS endpoint. I run three: the memory server, [Brave Search](https://brave.com/search/api/) for grounding in live data, and a GitHub server for reading and writing code. The gateway authenticates requests with a bearer token and spawns each tool as a child process. Adding a new tool means adding four lines to a JSON config file.
+
+### The Client
+
+[TypingMind](https://www.typingmind.com/) connects to the gateway. It is a bring-your-own-key AI chat app that runs as a PWA on every device I own -- phone, work laptop, home desktop. Same interface, same tools, any model. I pick the model from a dropdown. A new release from Anthropic or OpenAI inherits my full history the moment I select it.
 
 ## What It Costs
 
