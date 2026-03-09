@@ -4,7 +4,7 @@ The "Memory + Search" stack is a wedge. The ultimate goal of the Digital Twin is
 
 ## 1. The Theory: GitHub as a State Machine
 
-Open an issue rather than chatting. The agent polls the repository, identifies tasks, and moves them through a state machine via GitHub labels.
+Open an issue (by using our Typingmind tools) rather than chatting. The agent polls the repository, identifies tasks, and moves them through a state machine via GitHub labels.
 
 - **`new`**: A fresh request. The agent triages it.
 - **`needs_scoping`**: The agent requires a design decision. It comments and waits.

@@ -15,7 +15,7 @@ An AI power user typically pays:
 - **VPS:** $6/month (DigitalOcean or similar).
 - **Supabase:** $0 (Free tier).
 - **TypingMind:** $40 (One-time license).
-- **API Compute:** Variable. Average usage (~50M tokens) costs ~$36 via OpenRouter.
+- **API Compute:** Variable. Average usage (~50M tokens) costs ~$36 via OpenRouter -- depends on your model usage. Claude Opus is *very* expensive.
 
 **Monthly cost: $42.**
 
