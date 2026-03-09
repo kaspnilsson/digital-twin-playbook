@@ -2,23 +2,23 @@
 
 OpenAI is exploring ads in ChatGPT. Anthropic signed contracts with the Department of Defense. Google trains on everything you feed Gemini. Nobody knows exactly what these companies will do with the thousands of conversations you have poured into their products -- your debugging sessions, your medical questions, your relationship problems, your business plans -- but the incentives are not subtle. They want you dependent on their product, and your conversation history is the lever.
 
-Each of them remembers what you tell their models, and each of them locks that history inside their own app. Switch from Claude to ChatGPT and you start over. Switch back and you start over again. The profile they have built of how you think, how you write, what you work on -- that belongs to them, not to you, and it does not follow you out the door.
+Each of them remembers what you tell their models, and each of them locks that history inside their own app. Switch from Claude to ChatGPT and you start over. Switch to Gemini and you start over again. The profile they have built of how you think, how you write, and what you work on belongs to them, not to you. It does not follow you out the door.
 
-When I am not writing software for the [Waymo Driver](https://waymo.com/), I am an obsessive user of these tools. I have dumped a year of working context into them: project architectures, code reviews, personal health data, half-baked startup ideas. That accumulated context makes every conversation sharper. And it sits, today, in four separate vendor databases that do not talk to each other.
+When I'm not writing software to help develop the [Waymo Driver](https://waymo.com/), I'm an obsessive user of these tools. I've dumped a year of working context into them: project architectures, code reviews, personal health data, half-baked startup ideas. That accumulated context makes every conversation sharper. And it sits, today, in four separate vendor databases that do not talk to each other.
 
 So I built my own system.
 
 ## What I Actually Built
 
-I run a knowledge graph in a Postgres database on my own server. Claude, GPT-4, Gemini, Llama -- every model I use reads from and writes to that same database. The data never touches a vendor's infrastructure. When I switch models, the new one picks up exactly where the old one left off.
+I run a knowledge graph in a Postgres database on my own server. Claude, GPT-5, Gemini, GLM-5 -- every model I use reads from and writes to that same database. The data never touches a vendor's infrastructure. When I switch models, the new one picks up exactly where the old one left off.
 
 The architecture has three layers:
 
 **The brain.** I wrote an open-source MCP server called [`mcp-memory-supabase`](https://github.com/kaspnilsson/mcp-memory-supabase) that stores a knowledge graph -- entities, observations, relations -- in [Supabase](https://supabase.com/) (managed Postgres) with `pgvector` for semantic search. The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standard that lets AI clients call external tools. This server is one of several tools I run.
 
-**The gateway.** A small cloud VPS hosts an MCP Gateway -- a Node.js daemon that multiplexes several MCP tools behind a single HTTPS endpoint. I run three: the memory server, [Brave Search](https://brave.com/search/api/) for grounding in live data, and a GitHub server for reading and writing code. The gateway authenticates requests with a bearer token and spawns each tool as a child process. Adding a new tool means adding four lines to a JSON config file.
+**The gateway.** A small cloud VPS (virtual private server) hosts an MCP Gateway -- a Node.js daemon that multiplexes several MCP tools behind a single HTTPS endpoint. I run three: the memory server, [Brave Search](https://brave.com/search/api/) for grounding in live data, and a GitHub server for reading and writing code. The gateway authenticates requests with a bearer token and spawns each tool as a child process. Adding a new tool means adding four lines to a JSON config file.
 
-**The client.** [TypingMind](https://www.typingmind.com/) connects to the gateway. It is a BYO-key AI chat app that runs as a PWA on every device I own -- phone, work laptop, home desktop. Same interface, same tools, any model. I pick the model from a dropdown. A new release from Anthropic or OpenAI inherits my full history the moment I select it.
+**The client.** [TypingMind](https://www.typingmind.com/) connects to the gateway. It is a bring-your-own-key AI chat app that runs as a PWA on every device I own -- phone, work laptop, home desktop. Same interface, same tools, any model. I pick the model from a dropdown. A new release from Anthropic or OpenAI inherits my full history the moment I select it.
 
 ## What It Costs
 
@@ -33,7 +33,7 @@ AI subscriptions are priced at $20/month to make the lock-in feel cheap.
 | API compute via OpenRouter | ~$36 for 50M tokens |
 | **Total** | **~$45** |
 
-Metered compute costs more than a flat subscription. That is the point. The $20 price is a customer-acquisition subsidy. These companies are burning cash to build a user base before they figure out how to extract value from the conversation data they are accumulating. I pay the actual cost of the compute and keep the data on my own disk.
+Metered compute costs more than a flat subscription. But the $20 price is a customer-acquisition subsidy. These companies are burning cash to build a user base before they figure out how to extract value from the conversation data they are accumulating. I pay the actual cost of the compute and keep the data under my own lock and key.
 
 ## What Does Not Work Well
 
@@ -43,7 +43,7 @@ Anthropic has hundreds of engineers building a native application with voice, ar
 
 - **Voice is rough.** TypingMind supports speech input, but the experience is miles behind the native ChatGPT and Claude voice modes.
 - **iOS kills background work.** If you leave the browser while the AI is mid-thought on a long tool chain, iOS may terminate the process. You have to re-run the query.
-- **MCP config does not sync across devices.** TypingMind syncs chats, but you configure the MCP server URL and token manually on each device.
+- **MCP config does not sync across devices.** TypingMind syncs chats, but you configure the MCP server URL and token manually on each device. Easy to work around, but annoying.
 - **You are your own SRE.** If the VPS goes down at 2 AM, nobody pages anyone.
 
 This is not a consumer product. If you want polish, use Claude.ai. If you want control, keep reading.
@@ -54,7 +54,7 @@ The subscription model gives you a fixed product. You get the features the vendo
 
 This system compounds. Every conversation enriches the same graph, regardless of which model I used or which device I was on. After a month of use, the AI knows my manager's name is James. It knows my height and weight and clothing sizes when I ask it to help me shop online. It knows I want options ranked in a rubric, not dumped in a vague pros-and-cons list. It knows the tech stack of every side project I maintain. I never re-explain any of this.
 
-When Anthropic ships a new model, I select it from a dropdown. It reads the graph and immediately has the context that took me weeks to build. I do not wait for Anthropic to build a "memory" feature and hope they implement it well. The memory is mine.
+When Anthropic ships Sonnet 4.6, I select it from a dropdown. It reads the graph and immediately has the context that took me weeks to build. If I don't like how it behaves, I re-select Gemini 3.1 Pro and reissue the query. I do not wait for Anthropic or Google to build a "memory" feature and hope they implement it well. The memory is mine.
 
 After three months of daily use, the distance between this setup and a fresh ChatGPT session is enormous -- and it grows with every conversation.
 
