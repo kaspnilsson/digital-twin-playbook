@@ -90,3 +90,8 @@ This repository walks through the full architecture, start to finish. The guides
 This playbook focuses on the **Memory + Search** wedge -- the persistent brain. The architecture is designed for autonomous work.
 
 By adding an orchestration layer (like [OpenClaw](https://openclaw.ai/)) and a GitHub-based state machine, you can delegate engineering tasks to your twin via GitHub labels (`scoped`, `in_progress`, `completed`). Autonomous bots are out of scope for this initial guide, but the infrastructure you build here supports them. See the [Autonomous Delegation](docs/deep-dives/autonomous-delegation.md) deep dive for details.
+
+---
+
+**Note:** This project was built largely with AI assistance. Every written word in this repository was reviewed and refined by [kaspnilsson](https://github.com/kaspnilsson).
+
